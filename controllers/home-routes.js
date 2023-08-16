@@ -35,9 +35,7 @@ router.get('/blogs/:id', async (req, res) => {
           model: Blogger,
           attributes: [
             'id',
-            'bloggername',
-            'icon',
-            'post',
+            'comment',
           ],
         },
       ],
