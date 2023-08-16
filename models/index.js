@@ -30,3 +30,5 @@ Blogger.belongsTo(User, {
 Blogger.belongsTo(Blogs, {
   foreignKey: 'blog_id',
 });
+
+module.exports = User, Blogger, Blogs;
