@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 include: [
   {
     model: Blogger,
-    attributes: ['id', 'comment', 'blog_id', 'user_id'],
+    attributes: ['id', 'comment', 'user_id', 'blog_id'],
     include: {
       model: User,
       attributes: ['username']
@@ -20,11 +20,11 @@ include: [
   }
 ],
 });
-    const bloggers = blogsData.map((blogs) =>
+    const blogs = blogsData.map((blogs) =>
     blogs.get({ plain: true })
     );
     res.render('homepage', {
-      bloggers,
+      blogs,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -40,10 +40,7 @@ router.get('/blogs/:id', async (req, res) => {
       include: [
         {
           model: Blogger,
-          attributes: [
-            'id',
-            'comment',
-          ],
+          attributes: ['id','comment', 'user_id', 'post_id'],
         },
       ],
     });
