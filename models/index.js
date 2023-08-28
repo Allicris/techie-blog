@@ -26,4 +26,4 @@ Blogs.hasMany(Blogger, {
   foreignKey: 'blog_id',
 });
 
-module.exports = User, Blogger, Blogs;
+module.exports = { User, Blogger, Blogs };

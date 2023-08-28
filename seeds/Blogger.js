@@ -6,7 +6,7 @@ const bloggerData = [
     user_id : "2",
     blog_id: "1",
   }
-]
+];
 
 const seedBlogger = () => Blogger.bulkCreate(bloggerData);
 module.exports = seedBlogger;

@@ -1,0 +1,10 @@
+{{#if loggedIn}}
+<section class="painting">
+  <p>{{blogger.comment}}</p>
+  <p>{{blogger.user_id}}</p>
+  <div class="painting-details">
+  </div>
+</section>
+{{else}}
+<a href="/login">You must login first to view this page</a>
+{{/if}}

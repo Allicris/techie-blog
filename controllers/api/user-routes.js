@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 });
 
 //Login in
-router.post('./login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
@@ -43,18 +43,17 @@ router.post('./login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      console.log('File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
-        req.session.cookie
-      );
-
-      res.status(200).json({ user: userData, message: 'You are now logged in!' });
+      
+      res
+      .status(200)
+      .json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
+//Logout route
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
