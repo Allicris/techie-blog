@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { Blogs, Blogger } = require('../models');
+const { Blogs, Blogger, User } = require('../models');
 const withAuth = require('../utils/auth');
+
 //Get all of the blogs and bloggers for the homepage
 router.get('/', async (req, res) => {
   try {
@@ -23,12 +24,13 @@ include: [
     const blogs = blogsData.map((blogs) =>
     blogs.get({ plain: true })
     );
-    res.render('homepage', {
+    res.render('home-page', {
       blogs,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
+    console.log('cody was here');
     res.status(500).json(err);
   }
 });
