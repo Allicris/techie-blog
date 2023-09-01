@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+
 //API for creating a new user
 router.post('/', async (req, res) => {
   try {
@@ -53,6 +54,7 @@ router.post('/login', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 //Logout route
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {

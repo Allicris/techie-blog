@@ -30,7 +30,6 @@ include: [
     });
   } catch (err) {
     console.log(err);
-    console.log('cody was here');
     res.status(500).json(err);
   }
 });
@@ -56,7 +55,7 @@ router.get('/blogs/:id', withAuth, async (req, res) => {
 
 router.get('/blogger/:id', withAuth, async (req, res) => {
   try {
-    const dbAnimalsData = await Blogger.findByPk(req.params.id);
+    const dbBloggerData = await Blogger.findByPk(req.params.id);
 
     const blogger = dbBloggerData.get({ plain: true });
 
